@@ -27,7 +27,7 @@ class UserController extends Controller
             return redirect()->route('posts.dashboard');
         }
         else{
-            return redirect()->route('users.login');
+            return back()->withErrors(['email'=>'Email Not Exist Or', 'password'=> "Pasword Incorrect !"])->withInput();
         }
     }
 
@@ -61,7 +61,17 @@ class UserController extends Controller
     }
 
     public function dashboardAction(){
-        return view('posts.dashboard');
+        if(!Auth::check()){
+            return redirect()->route('users.login');
+        }
+        $user = auth()->user();
+        return view('posts.dashboard', compact('user'));
     }
 
+    public function logoutAction(){
+        Auth::logout();
+        request()->session()->invalidate();
+        request()->session()->regenerateToken();
+        return redirect()->route('users.login');
+    }
 }
