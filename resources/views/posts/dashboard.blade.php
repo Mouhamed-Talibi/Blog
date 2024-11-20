@@ -26,7 +26,7 @@
         <div class="link">
             <form action="{{route('users.logout')}}" method="POST">
                 @csrf
-                <button type="submit" name="logout" onclick="confirm('Are sure you want to logout?')">Logout</button>
+                <button type="submit" name="logout" onclick="return confirm('Are sure you want to logout?')">Logout</button>
             </form>
         </div>
     </nav>

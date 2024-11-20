@@ -11,56 +11,41 @@
     <link rel="stylesheet" href="{{asset('style/show.css')}}">
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Blog Dashboard</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('posts.dashboard')}}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{route('posts.create')}}">Create Post</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="{{route('posts.myPosts')}}">My Posts</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="">All Posts</a>
-                    </li>
-                    <li class="nav-item">
-                        <form action="{{route('users.logout')}}" method="POST" class="nav-link p-0">
-                            @csrf
-                            <button type="submit" class="btn btn-link text-white" onclick="return confirm('Are you sure you want to logout?')">Logout</button>
-                        </form>
-                    </li>
-                </ul>
+    <nav>
+        <b>Blog Dashboard</b>
+        <div class="links">
+            <div class="link">
+                <a href="{{route('posts.dashboard')}}">Home</a>
             </div>
+            <div class="link">
+                <a href="{{route('posts.create')}}">Create Post</a>
+            </div>
+            <div class="link">
+                <a href="{{route('posts.myPosts')}}">My Posts</a>
+            </div>
+        </div>
+        <div class="link">
+            <form action="{{route('users.logout')}}" method="POST">
+                @csrf
+                <button type="submit" name="logout" onclick="confirm('Are sure you want to logout?')">Logout</button>
+            </form>
         </div>
     </nav>
 
-    <div class="container py-5">
-        <div class="pseudo-container">
-            <div class="image">
-                <img src="{{asset('storage/' . $post->image)}}" alt="">
-            </div>
-            <div class="infos">
-                <div class="title">
-                    <b>Post Title : </b>
-                    {{$post->title}}
-                </div>
-                <div class="descripiton">
-                    <p>Description : </p>
-                    {{$post->description}}
-                </div>
-                <div class="created_at">
-                    <p>Created at : </p>
-                    {{$post->created_at}}
-                </div>
-            </div>
+    <div class="container">
+        <div class="post-image">
+            <img src="{{asset('storage/' . $post->image)}}" alt="post-image">
+        </div>
+        <div class="details">
+            <b>About : </b> {{$post->title}}
+            <br><br>
+            <b>Description : </b> 
+            <br>
+            {{$post->description}}
+            <small>Created At : </small> {{$post->created_at}}
+        </div>
+        <div class="link-my-posts">
+            <a href="{{route('posts.myPosts')}}">Return to my posts</a>
         </div>
     </div>
 

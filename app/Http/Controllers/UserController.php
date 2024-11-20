@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
+
+    public function homeAction(){
+        return view('home');
+    }
+
     public function loginAction(){
         return view('users.login');
     }

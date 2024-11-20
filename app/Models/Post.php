@@ -10,4 +10,12 @@ class Post extends Model
     public function creator(){
         return $this->belongsTo(User::class, 'creator_id');
     }
+
+    // update method : 
+    protected $fillable = [
+        'title',
+        'description',
+        'image',
+        'creator_id',
+    ];
 }

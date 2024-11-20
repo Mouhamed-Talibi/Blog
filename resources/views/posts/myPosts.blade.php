@@ -29,7 +29,7 @@
                         <a class="nav-link active" href="{{route('posts.myPosts')}}">My Posts</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="">All Posts</a>
+                        <a class="nav-link active" href="{{route('posts.allPosts')}}">All Posts</a>
                     </li>
                     <li class="nav-item">
                         <form action="{{route('users.logout')}}" method="POST" class="nav-link p-0">
@@ -52,9 +52,13 @@
                             <h5 class="card-title">{{ $post->title }}</h5>
                             <p class="card-text">{{ Str::limit($post->description, 150) }}</p>
                             <p class="card-text"><small class="text-muted">Created at: {{ $post->created_at->format('M d, Y') }}</small></p>
-                            <a href="#" class="btn btn-primary">Show</a>
-                            <a href="#" class="btn btn-warning">Edit</a>
-                            <a href="#" class="btn btn-danger">delete</a>
+                            <a href="{{route('posts.show', $post->id)}}" class="btn btn-primary">Show</a>
+                            <a href="{{route('posts.edit', $post->id)}}" class="btn btn-warning">Edit</a>
+                            <form action="{{route('posts.destroy', $post->id)}}" method="POST" class="d-inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger" onclick="return confirm('are you sure you wanna delete this post ?')">Delete</button>
+                            </form>
                         </div>
                     </div>
                 </div>

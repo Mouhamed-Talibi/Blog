@@ -5,6 +5,7 @@ use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 use App\Models\User;
 
+Route::get('/', [UserController::class, 'homeAction'])->name('users.home');
 Route::get('/login', [UserController::class, 'loginAction'])->name('users.login');
 Route::get('/register', [UserController::class, 'registerAction'])->name('users.register');
 Route::post('/logout', [UserController::class, 'logoutAction'])->name('users.logout');
@@ -19,4 +20,8 @@ Route::get('/posts/create', [PostController::class, 'createAction'])->name('post
 Route::post('/posts', [PostController::class, 'storeAction'])->name('posts.store');
 Route::get('/posts', [PostController::class, 'myPostsAction'])->name('posts.myPosts');
 Route::get('/posts/all', [PostController::class, 'allPostsAction'])->name('posts.allPosts');
+Route::put('/posts/{post}', [PostController::class, 'updateAction'])->name('posts.update');
+Route::delete('/posts/{post}', [PostController::class, 'destroyAction'])->name('posts.destroy');
+Route::get('/posts/{post}/edit', [PostController::class, 'editAction'])->name('posts.edit');
 Route::get('/posts/{post}', [PostController::class, 'showAction'])->name('posts.show');
+
