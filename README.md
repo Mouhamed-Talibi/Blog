@@ -64,3 +64,24 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+# How To Run The App
+
+1. Open your database server (e.g., MySQL Workbench, XAMPP).
+2. Create a new database named `blog`.
+3. Navigate to the folder where you want to store the project using the command:
+
+4. Open the project folder with VSCode or any code editor of your choice.
+5. In the terminal, run:
+
+6. Copy the server address provided in the terminal and paste it into your browser.
+7. Run the following command to migrate the database:
+This will create all the necessary tables in your database.
+8. Run the following SQL queries on your database:
+```sql
+ALTER TABLE posts MODIFY created_at DATETIME DEFAULT CURRENT_TIMESTAMP;
+ALTER TABLE posts MODIFY updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
+
+9. Return to the app and register a new account.
+10. Log in to your account.
+11. Start creating and editing posts.
