@@ -65,23 +65,64 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
-# How To Run The App
+# Blog Project
 
-1. Open your database server (e.g., MySQL Workbench, XAMPP).
-2. Create a new database named `blog`.
-3. Navigate to the folder where you want to store the project using the command:
+This is a simple blog application built with Laravel. Users can register, log in, and create or edit posts. The app uses a MySQL database to store user and post data.
 
-4. Open the project folder with VSCode or any code editor of your choice.
-5. In the terminal, run:
+## Features
 
-6. Copy the server address provided in the terminal and paste it into your browser.
-7. Run the following command to migrate the database:
-This will create all the necessary tables in your database.
-8. Run the following SQL queries on your database:
-```sql
-ALTER TABLE posts MODIFY created_at DATETIME DEFAULT CURRENT_TIMESTAMP;
-ALTER TABLE posts MODIFY updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
+- User Registration & Authentication
+- Create, Edit, and Delete Blog Posts
+- User-friendly Interface
 
-9. Return to the app and register a new account.
-10. Log in to your account.
-11. Start creating and editing posts.
+## Requirements
+
+Before running the app, ensure you have the following installed:
+
+- PHP 7.4 or higher
+- Composer
+- MySQL or a compatible database server (e.g., XAMPP, MySQL Workbench)
+- Laravel (via Composer)
+- Any code editor (e.g., Visual Studio Code)
+
+## How To Run The App
+
+1. **Open your database server**  
+   Use a database management tool like [MySQL Workbench](https://www.mysql.com/products/workbench/) or [XAMPP](https://www.apachefriends.org/index.html).
+
+2. **Create a new database**  
+   Create a new database named `blog`.
+
+3. **Navigate to the project folder**  
+   Open a terminal and run the following command to navigate to the folder where you want to store the project:
+   ```bash
+   cd path_where_you_want_store_project
+   
+4. **Open the project folder with a code editor**
+    Open the project folder with your preferred code editor (e.g., Visual Studio Code, Sublime Text).
+
+5. **Run the server**
+    In the terminal, navigate to the project directory and run the following command to start the development server:
+        php artisan serve
+
+6. **Open the app in your browser**
+    Copy the server address shown in the terminal (usually http://127.0.0.1:8000) and paste it into your browser.
+
+7. **Run database migrations**
+    To create all necessary tables in your database, run the following command in the terminal:
+       php artisan migrate
+
+8. **Run the SQL queries**
+    Execute these queries on your database to modify the created_at and updated_at columns in the posts table:
+       ALTER TABLE posts MODIFY created_at DATETIME DEFAULT CURRENT_TIMESTAMP;
+       ALTER TABLE posts MODIFY updated_at DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP;
+
+9. **Register an account**
+    Go to the app in your browser and register a new user account.
+
+10. **Login to your account**
+    After registering, log in to your account.
+
+11. **Start creating posts**
+    You can now create, edit, and manage your blog posts through the app.
+
