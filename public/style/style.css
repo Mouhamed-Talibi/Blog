@@ -1,0 +1,346 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* All Posts Table */
+.all-posts-container {
+    margin-top: 30px;
+}
+
+.all-posts-table {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.all-posts-table th {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 12px;
+}
+
+.all-posts-table td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.all-posts-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.all-posts-table tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Image Styling */
+.post-image {
+    width: 80px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Show Button */
+.show-post-btn {
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.show-post-btn:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .all-posts-table {
+        font-size: 12px;
+    }
+
+    .post-image {
+        width: 60px;
+        height: 40px;
+    }
+
+    .show-post-btn {
+        padding: 4px 8px;
+        font-size: 12px;
+    }
+}
+
+/* General container styling */
+.my-posts-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Heading */
+.my-posts-container h2 {
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+}
+
+/* No posts message */
+.no-posts-message {
+    font-size: 1.2rem;
+    color: #888;
+}
+
+/* Card styling */
+.my-post-card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.my-post-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Image inside the card */
+.my-post-image {
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+/* Card body */
+.my-post-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.my-post-description {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 10px 0;
+}
+
+.my-post-meta {
+    font-size: 0.8rem;
+    color: #999;
+}
+
+/* Buttons inside the card */
+.my-post-show-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.my-post-show-btn:hover {
+    background-color: #0056b3;
+}
+
+.my-post-edit-btn {
+    background-color: #ffc107;
+    color: white;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.my-post-edit-btn:hover {
+    background-color: #d39e00;
+}
+
+.my-post-delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.my-post-delete-btn:hover {
+    background-color: #bd2130;
+}
+
+/* Edit Post Form Styles */
+.edit-post-form {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.edit-post-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.edit-post-form .form-label {
+    font-weight: 600;
+    color: #495057;
+}
+
+.edit-post-form .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    padding: 10px;
+    border-color: black;
+}
+
+.edit-post-form .form-control:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 5px rgba(13, 110, 253, 0.25);
+}
+
+.edit-post-form .btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.edit-post-form .btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0b5ed7;
+}
+
+/* Error alert styles */
+.alert {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #842029;
+    border: 1px solid #f5c2c7;
+}
+
+/* Footer Styling */
+footer {
+    background-color: #343a40;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+footer a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Welcome and Access Links */
+.welcome-message {
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-message p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #495057;
+}
+
+.welcome-message b {
+    color: #007bff;
+}
+
+/* Access Links */
+.access-links {
+    margin-top: 20px;
+}
+
+.access-links a {
+    display: inline-block;
+    margin-right: 15px;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 5px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.access-links .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: white;
+}
+
+.access-links .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+}
+
+.access-links .btn-secondary {
+    background-color: #6c757d;
+    border-color: #6c757d;
+    color: white;
+}
+
+.access-links .btn-secondary:hover {
+    background-color: #5a6268;
+    border-color: #545b62;
+}
+
+/* Footer Fix - Ensures it stays at the bottom */
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Responsive Design for Links */
+@media (max-width: 768px) {
+    .welcome-message p {
+        font-size: 16px;
+    }
+
+    .access-links a {
+        font-size: 14px;
+        padding: 8px 16px;
+        margin-right: 10px;
+    }
+
+    footer {
+        font-size: 14px;
+        padding: 10px;
+    }
+}

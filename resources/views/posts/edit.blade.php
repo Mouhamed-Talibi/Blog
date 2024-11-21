@@ -1,41 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    {{-- bootstrap link --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Editing post</title>
-    {{-- style --}}
-    <link rel="stylesheet" href="{{asset('style/createPost.css')}}">
-</head>
-<body>
-    <nav>
-        <b>Blog Dashboard</b>
-        <div class="links">
-            <div class="link">
-                <a href="{{route('posts.dashboard')}}">Home</a>
-            </div>
-            <div class="link">
-                <a href="{{route('posts.create')}}">Create Post</a>
-            </div>
-            <div class="link">
-                <a href="{{route('posts.myPosts')}}">My Posts</a>
-            </div>
-            <div class="link">
-                <a href="{{route('posts.allPosts')}}">All Posts</a>
-            </div>
-        </div>
-        <div class="link">
-            <form action="{{route('users.logout')}}" method="POST">
-                @csrf
-                <button type="submit" name="logout" onclick="confirm('Are sure you want to logout?')">Logout</button>
-            </form>
-        </div>
-    </nav>
+@extends('layouts.app')
 
-    <div class="container">
+@section('title')
+    Blog | Edit Post
+@endsection
+
+@section('content')
+    <div class="container py-5">
         @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
@@ -45,32 +15,25 @@
                 </ul>
             </div>
         @endif
-        <form action="{{route('posts.update', $post->id)}}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('posts.update', $post->id) }}" method="POST" enctype="multipart/form-data" class="edit-post-form">
             @csrf
             @method('PUT')
-            <div class="field">
-                <label for="">Post Title</label>
-                <input type="text" name="title" id="" value="{{$post->title}}">
+            <div class="form-group mb-3">
+                <label for="postTitle" class="form-label">Post Title</label>
+                <input type="text" name="title" id="postTitle" class="form-control" value="{{ $post->title }}">
             </div>
-            <div class="field">
-                <label for="">Post Description</label>
-                <textarea name="description" id="" cols="30" rows="10">
-                    {{$post->description}}
-                </textarea>
+            <div class="form-group mb-3">
+                <label for="postDescription" class="form-label">Post Description</label>
+                <textarea name="description" id="postDescription" class="form-control" rows="5">{{ $post->description }}</textarea>
             </div>
-            <div class="field">
-                <label for="">Post Image</label>
-                <input type="file" name="image" id="" value="{{$post->image}}">
+            <div class="form-group mb-3">
+                <label for="postImage" class="form-label">Post Image</label>
+                <input type="file" name="image" id="postImage" class="form-control">
             </div>
-            <div class="field">
-                <input type="hidden" name="creator_id" id="" value="{{$post->creator_id}}">
+            <input type="hidden" name="creator_id" value="{{ $post->creator_id }}">
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Update</button>
             </div>
-            <input type="submit" value="Update">
         </form>
     </div>
-
-    <div class="developer">
-        Developed By <span>Mohamed Talibi</span>
-    </div>
-</body>
-</html>
+@endsection

@@ -77,6 +77,13 @@ class UserController extends Controller
         Auth::logout();
         request()->session()->invalidate();
         request()->session()->regenerateToken();
-        return redirect()->route('users.login');
+        // Clear the session cookie
+        $cookie = cookie('laravel_session', '', -1);
+        if($cookie){
+            return redirect()->route('users.login');
+        }
+        else{
+            return redirect()->route('posts.dashboard');
+        }
     }
 }
